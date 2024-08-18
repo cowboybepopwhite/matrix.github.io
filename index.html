@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matrix选择题复习系统</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1><img src = "logo2-transparent-2x.svg" alt="出错了">选择题复习系统</h1>
+    </header>
+    <main>
+        <div id="question-area">
+            <p id="question-text"></p>
+            <div id="options"></div>
+        </div>
+        <div id="controls">
+            <button id="prev-botton">上一题</button>
+            <button id="next-botton">下一题</button>
+            <button id="submit-botton">提交答案</button>
+        </div>
+        <div id="result-area">
+            <p id="result-text"></p>
+            <p id="correct-answer"></p>
+            <p id="explanation"></p>
+        </div>
+        <div id="stats">
+            <p>做题进度：<span id="progress"></span></p>
+            <p>总题目数：<span id="total-questions"></span></p>
+            <p>正确率：<span id="accuracy"></span></p>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

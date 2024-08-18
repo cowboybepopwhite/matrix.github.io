@@ -1,0 +1,40 @@
+[
+    {
+        "text": "第一个问题是什么？",
+        "options": ["A", "B", "C", "D"],
+        "answer": 1,
+        "explanation": "这是正确答案的解释。"
+    },
+    {
+        "text": "第二个问题是什么？",
+        "options": ["A", "B", "C", "D"],
+        "answer": 2,
+        "explanation": "这是第二个问题的解释。"
+    },
+    {
+        "text": "第三个问题是什么？",
+        "options": ["A", "B", "C", "D"],
+        "answer": 3,
+        "explanation": "这是第三个问题的解释。"
+    },
+    {
+        "text": "第四个问题是什么？",
+        "options": ["A", "B", "C", "D"],
+        "answer": 1,
+        "explanation": "这是第四个问题的解释。"
+    },
+    {
+        "text": "第五个问题是什么？",
+        "options": ["A", "B", "C", "D"],
+        "answer": 3,
+        "explanation": "这是第五个问题的解释。"
+    },
+    {
+        "text": "第六个问题是什么？",
+        "options": ["A", "B", "C", "D"],
+        "answer": 2,
+        "explanation": "这是第六个问题的解释。"
+    }
+    
+
+]

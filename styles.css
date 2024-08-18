@@ -1,0 +1,72 @@
+html{
+  font-size: 1em
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff; /* 浅蓝色背景 */
+  color: #003366; /* 深蓝色文字 */
+  margin: 0;
+  padding: 0;
+}
+
+header h1{
+  background-color: #009999; /* 深蓝色背景 */
+  background-size: 800px;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+header img{
+  width: 288px;
+  height: 64px;
+  max-width: 100%;
+  vertical-align:middle;
+
+gap: 0px;
+opacity: 0px;
+
+
+}
+
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: #87CEEB; /* 浅蓝色按钮 */
+  color: #003366; /* 深蓝色文字 */
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #00BFFF; /* 悬停变深蓝色 */
+}
+
+#question-area {
+  margin-bottom: 20px;
+}
+
+#result-area {
+  margin: 20px 0;
+  background-color: #e6f2ff; /* 蓝色调背景 */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#stats {
+  margin-top: 20px;
+  background-color: #e0f7fa; /* 浅蓝色背景 */
+  padding: 10px;
+  border-radius: 5px;
+}
+/*js尽量操作id，class尽量操作css！*/
