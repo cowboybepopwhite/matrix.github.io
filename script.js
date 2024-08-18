@@ -10,7 +10,7 @@ async/*异步函数*/ function loadQuestions() {
         if (!response.ok) throw new Error('网络错误');
 
         questions = await response.json();
-        document.getElementById('total-questions').innerText = questions.length;
+        document.getElementById('total-questions').innerText = questions.length;//加载总题数
         loadQuestion(); // 加载第一题
     } catch (error) {
         console.error('加载题目失败:', error);
