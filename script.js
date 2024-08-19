@@ -57,8 +57,16 @@ function checkAnswer() {
     const resultText = answerIndex === question.answer ? '回答正确!' : '回答错误!';
 
     if(answerIndex === question.answer){
+        if(finishedQuestion < questions.length){
+            finishedQuestion++;
+        }
         rightRate += 1 / questions.length;
         document.getElementById('total-questions').innerText = questions.length;
+    }
+    else{
+        if(finishedQuestion < questions.length){
+            finishedQuestion++;
+        }
     }
 
     document.getElementById('result-text').innerText = resultText;
@@ -88,9 +96,7 @@ let indexnow = -1;
 
 document.getElementById('submit-botton').addEventListener('click', () => {
     if(indexnow != currentQuestionIndex){
-        if(finishedQuestion < questions.length){
-            finishedQuestion++;
-        }
+
         checkAnswer();
     }
     indexnow = currentQuestionIndex;
