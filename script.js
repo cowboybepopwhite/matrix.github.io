@@ -88,10 +88,9 @@ document.getElementById('submit-botton').addEventListener('click', () => {
         if(finishedQuestion < questions.length){
             finishedQuestion++;
         }
+        if(finishedQuestion) checkAnswer();
     }
     indexnow = currentQuestionIndex;
-    if(finishedQuestion)
-    checkAnswer();
 });
 
 
