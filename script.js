@@ -91,8 +91,9 @@ document.getElementById('submit-botton').addEventListener('click', () => {
             finishedQuestion++;
         }
         checkAnswer();
+        indexnow = currentQuestionIndex;
     }
-    indexnow = currentQuestionIndex;
+
 });
 
 
