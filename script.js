@@ -46,6 +46,7 @@ function checkAnswer() {
     if (!selectedOption){
         document.getElementById('result-text').innerText = '请选择一个选项';
         document.getElementById('explanation').innerText = "";
+        document.getElementById('correct-answer').innerText ='';
         return;
     }
 
