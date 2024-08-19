@@ -81,7 +81,7 @@ document.getElementById('next-botton').addEventListener('click', () => {
     }
 });
 
-let indexnow = 0;
+let indexnow = -1;
 
 document.getElementById('submit-botton').addEventListener('click', () => {
     if(indexnow !== currentQuestionIndex){
