@@ -49,6 +49,7 @@ function checkAnswer() {
     if (!selectedOption){
         document.getElementById('result-text').innerText = '请选择一个选项';
         checkAnswer();
+
     }
 
     const answerIndex = parseInt(selectedOption.value);
@@ -91,8 +92,8 @@ document.getElementById('submit-botton').addEventListener('click', () => {
             finishedQuestion++;
         }
         checkAnswer();
-        indexnow = currentQuestionIndex;
     }
+    indexnow = currentQuestionIndex;
 
 });
 
