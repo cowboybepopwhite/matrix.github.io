@@ -45,10 +45,9 @@ function checkAnswer() {
     const selectedOption = document.querySelector('input[name="option"]:checked');//选中的选项
     if (!selectedOption){
         document.getElementById('result-text').innerText = '请选择一个选项';
+        document.getElementById('explanation').innerText = "";
         return;
     }
-
-    finishedQuestion += 1;
 
     const answerIndex = parseInt(selectedOption.value);
     const question = questions[currentQuestionIndex];
@@ -82,8 +81,16 @@ document.getElementById('next-botton').addEventListener('click', () => {
     }
 });
 
+let indexnow = 0;
 
 document.getElementById('submit-botton').addEventListener('click', () => {
+    if(indexnow !== currentQuestionIndex){
+        if(finishedQuestion < questions.length){
+            finishedQuestion++;
+        }
+    }
+    indexnow = currentQuestionIndex;
+    if(finishedQuestion)
     checkAnswer();
 });
 
