@@ -42,11 +42,12 @@ function loadQuestion() {
 
 
 function checkAnswer() {
+    document.getElementById('result-text').innerText = '';
+    document.getElementById('explanation').innerText = "";
+    document.getElementById('correct-answer').innerText ='';
     const selectedOption = document.querySelector('input[name="option"]:checked');//选中的选项
     if (!selectedOption){
         document.getElementById('result-text').innerText = '请选择一个选项';
-        document.getElementById('explanation').innerText = "";
-        document.getElementById('correct-answer').innerText ='';
         return;
     }
 
