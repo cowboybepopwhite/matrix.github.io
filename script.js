@@ -87,14 +87,13 @@ document.getElementById('next-botton').addEventListener('click', () => {
 let indexnow = -1;
 
 document.getElementById('submit-botton').addEventListener('click', () => {
-    if(indexnow !== currentQuestionIndex){
+    if(indexnow != currentQuestionIndex){
         if(finishedQuestion < questions.length){
             finishedQuestion++;
         }
         checkAnswer();
     }
     indexnow = currentQuestionIndex;
-
 });
 
 
