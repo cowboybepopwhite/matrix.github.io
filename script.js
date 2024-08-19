@@ -66,11 +66,11 @@ function checkAnswer() {
     document.getElementById('correct-answer').innerText = `正确答案：${question.options[question.answer]}`;
     document.getElementById('explanation').innerText = question.explanation;
     document.getElementById('progress').innerText = finishedQuestion;
-    document.getElementById('accuracy').innerText = rightRate;
+    document.getElementById('accuracy').innerText = rightAnswer / questions.length;
 }
 
 
-document.getElementById('prev-botton').addEventListener('click', () => {
+document.getElementById('prev-botton').addEventListener('onclick', () => {
     if (currentQuestionIndex > 0) {
         currentQuestionIndex--;
         loadQuestion();
@@ -78,7 +78,7 @@ document.getElementById('prev-botton').addEventListener('click', () => {
 });
 
 
-document.getElementById('next-botton').addEventListener('click', () => {
+document.getElementById('next-botton').addEventListener('onclick', () => {
     if (currentQuestionIndex < questions.length - 1) {
         currentQuestionIndex++;
         loadQuestion();
@@ -86,7 +86,7 @@ document.getElementById('next-botton').addEventListener('click', () => {
 });
 
 
-document.getElementById('submit-botton').addEventListener('click', () => {
+document.getElementById('submit-botton').addEventListener('onclick', () => {
     checkAnswer();
 });
 
