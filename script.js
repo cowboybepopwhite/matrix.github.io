@@ -1,7 +1,7 @@
 let questions = [];
 let currentQuestionIndex = 0;
 let finishedQuestion = 0;
-let rightRate = 0;
+let rightAnswer = 0;
 
 async/*异步函数*/ function loadQuestions() {
     try {
@@ -18,7 +18,7 @@ async/*异步函数*/ function loadQuestions() {
 }
 
 document.getElementById('progress').innerText = finishedQuestion;
-document.getElementById('accuracy').innerText = rightRate;
+document.getElementById('accuracy').innerText = rightAnswer / questions.length;
 
 
 function loadQuestion() {
@@ -49,13 +49,16 @@ function checkAnswer() {
     }
 
     finishedQuestion += 1;
+    if(finishedQuestion > 6){
+        finishedQuestion = 6;
+    }
 
     const answerIndex = parseInt(selectedOption.value);
     const question = questions[currentQuestionIndex];
     const resultText = answerIndex === question.answer ? '回答正确!' : '回答错误!';
 
     if(answerIndex === question.answer){
-        rightRate += 1 / questions.length;
+        rightAnswer++;
         document.getElementById('total-questions').innerText = questions.length;
     }
 

@@ -6,7 +6,7 @@
         "explanation": "这是正确答案的解释。"
     },
     {
-        "text": "第二个问题是什么？(答案是c)",
+        "text": "第二个问题是什么？(答案是C)",
         "options": ["A", "B", "C", "D"],
         "answer": 2,
         "explanation": "这是第二个问题的解释。"
@@ -24,13 +24,13 @@
         "explanation": "这是第四个问题的解释。"
     },
     {
-        "text": "第五个问题是什么？(答案是C)",
+        "text": "第五个问题是什么？(答案是D)",
         "options": ["A", "B", "C", "D"],
         "answer": 3,
         "explanation": "这是第五个问题的解释。"
     },
     {
-        "text": "第六个问题是什么？(答案是D)",
+        "text": "第六个问题是什么？(答案是C)",
         "options": ["A", "B", "C", "D"],
         "answer": 2,
         "explanation": "这是第六个问题的解释。"
