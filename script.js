@@ -1,80 +1,98 @@
 let questions = [];
 let currentQuestionIndex = 0;
+let finishedQuestion = 0;
+let rightAnswer = 0;
 
-async function loadQuestions() {
+async/*异步函数*/ function loadQuestions() {
     try {
         const response = await fetch('questions.json');
+
         if (!response.ok) throw new Error('网络错误');
+
         questions = await response.json();
-        if (questions.length > 0) {
-            loadQuestion(); // 加载第一题
-            updateStats(); // 更新题目总数
-        } else {
-            console.error('题目数据为空');
-        }
+        document.getElementById('total-questions').innerText = questions.length;//加载总题数
+        loadQuestion(); // 加载第一题
     } catch (error) {
         console.error('加载题目失败:', error);
     }
 }
 
+document.getElementById('progress').innerText = finishedQuestion;
+document.getElementById('accuracy').innerText = rightAnswer / questions.length;
+
+
 function loadQuestion() {
-    const question = questions[currentQuestionIndex];
-    if (!question) {
-        console.error('当前题目无效');
-        return;
-    }
-    document.getElementById('question-text').innerText = question.text;
+    const question = questions[currentQuestionIndex];//加载当前题
+    if (!question) return;//若不存在则返回
+
+    document.getElementById('question-text').innerText = question.text;//加载题目文本
+
     const optionsDiv = document.getElementById('options');
-    optionsDiv.innerHTML = '';
+    optionsDiv.innerHTML = '';//为输入框元素设置空字符串 '' 以清空它
+
     question.options.forEach((option, index) => {
-        const optionElement = document.createElement('div');
+        const optionElement = document.createElement('div');//创建节点
         optionElement.innerHTML = `
             <input type="radio" name="option" value="${index}" id="option${index}">
             <label for="option${index}">${option}</label>
-        `;
+        `;/*radio 类型的 <input> 元素通常用于一个单选组中，其中包含一组描述一系列相关选项的单选按钮。*/
         optionsDiv.appendChild(optionElement);
     });
-    updateProgress(); // 更新当前题目索引
 }
 
+
 function checkAnswer() {
-    const selectedOption = document.querySelector('input[name="option"]:checked');
-    if (!selectedOption) {
+    const selectedOption = document.querySelector('input[name="option"]:checked');//选中的选项
+    if (!selectedOption){
         document.getElementById('result-text').innerText = '请选择一个选项';
+        document.getElementById('correct-answer').innerText ='';
+        document.getElementById('explanation').innerText ='';
         return;
     }
+
+    finishedQuestion += 1;
+    if(finishedQuestion > questions.length){
+        finishedQuestion = questions.length;
+    }
+
     const answerIndex = parseInt(selectedOption.value);
     const question = questions[currentQuestionIndex];
     const resultText = answerIndex === question.answer ? '回答正确!' : '回答错误!';
+
+    if(answerIndex === question.answer){
+        rightAnswer++;
+        document.getElementById('total-questions').innerText = questions.length;
+    }
+
     document.getElementById('result-text').innerText = resultText;
     document.getElementById('correct-answer').innerText = `正确答案：${question.options[question.answer]}`;
     document.getElementById('explanation').innerText = question.explanation;
+    document.getElementById('progress').innerText = finishedQuestion;
+    document.getElementById('accuracy').innerText = rightAnswer / questions.length;
 }
 
-function updateStats() {
-    document.getElementById('total-questions').innerText = questions.length;
-}
 
-function updateProgress() {
-    document.getElementById('progress').innerText = `${currentQuestionIndex + 1} / ${questions.length}`;
-}
-
-document.getElementById('prev-btn').addEventListener('click', () => {
+document.getElementById('prev-botton').addEventListener('onclick', () => {
     if (currentQuestionIndex > 0) {
         currentQuestionIndex--;
         loadQuestion();
     }
 });
 
-document.getElementById('next-btn').addEventListener('click', () => {
+
+document.getElementById('next-botton').addEventListener('onclick', () => {
     if (currentQuestionIndex < questions.length - 1) {
         currentQuestionIndex++;
         loadQuestion();
     }
 });
 
-document.getElementById('submit-btn').addEventListener('click', () => {
+
+document.getElementById('submit-botton').addEventListener('onclick', () => {
     checkAnswer();
 });
 
+
 loadQuestions(); // 初始加载题目数据
+
+
