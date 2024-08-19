@@ -49,8 +49,8 @@ function checkAnswer() {
     }
 
     finishedQuestion += 1;
-    if(finishedQuestion > 6){
-        finishedQuestion = 6;
+    if(finishedQuestion > questions.length){
+        finishedQuestion = questions.length;
     }
 
     const answerIndex = parseInt(selectedOption.value);
