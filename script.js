@@ -26,9 +26,8 @@ function loadQuestion() {
     if (!question) return;//若不存在则返回
 
     document.getElementById('question-text').innerText = question.text;//加载题目文本
-    document.getElementById('result-text').innerText = '';
-    document.getElementById('explanation').innerText = "";
-    document.getElementById('correct-answer').innerText ='';
+    document.getElementById('explanation').innerText = " ";
+    document.getElementById('correct-answer').innerText =' ';
 
     const optionsDiv = document.getElementById('options');
     optionsDiv.innerHTML = '';//为输入框元素设置空字符串 '' 以清空它
