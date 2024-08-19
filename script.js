@@ -1,7 +1,7 @@
 let questions = [];
 let currentQuestionIndex = 0;
 let finishedQuestion = 0;
-let rightAnswer = 0;
+let rightRate = 0;
 
 async/*异步函数*/ function loadQuestions() {
     try {
@@ -18,7 +18,7 @@ async/*异步函数*/ function loadQuestions() {
 }
 
 document.getElementById('progress').innerText = finishedQuestion;
-document.getElementById('accuracy').innerText = rightAnswer / questions.length;
+document.getElementById('accuracy').innerText = rightRate;
 
 
 function loadQuestion() {
@@ -49,16 +49,13 @@ function checkAnswer() {
     }
 
     finishedQuestion += 1;
-    if(finishedQuestion > questions.length){
-        finishedQuestion = questions.length;
-    }
 
     const answerIndex = parseInt(selectedOption.value);
     const question = questions[currentQuestionIndex];
     const resultText = answerIndex === question.answer ? '回答正确!' : '回答错误!';
 
     if(answerIndex === question.answer){
-        rightAnswer++;
+        rightRate += 1 / questions.length;
         document.getElementById('total-questions').innerText = questions.length;
     }
 
@@ -66,11 +63,11 @@ function checkAnswer() {
     document.getElementById('correct-answer').innerText = `正确答案：${question.options[question.answer]}`;
     document.getElementById('explanation').innerText = question.explanation;
     document.getElementById('progress').innerText = finishedQuestion;
-    document.getElementById('accuracy').innerText = rightAnswer / questions.length;
+    document.getElementById('accuracy').innerText = rightRate;
 }
 
 
-document.getElementById('prev-botton').addEventListener('onclick', () => {
+document.getElementById('prev-botton').addEventListener('click', () => {
     if (currentQuestionIndex > 0) {
         currentQuestionIndex--;
         loadQuestion();
@@ -78,7 +75,7 @@ document.getElementById('prev-botton').addEventListener('onclick', () => {
 });
 
 
-document.getElementById('next-botton').addEventListener('onclick', () => {
+document.getElementById('next-botton').addEventListener('click', () => {
     if (currentQuestionIndex < questions.length - 1) {
         currentQuestionIndex++;
         loadQuestion();
@@ -86,7 +83,7 @@ document.getElementById('next-botton').addEventListener('onclick', () => {
 });
 
 
-document.getElementById('submit-botton').addEventListener('onclick', () => {
+document.getElementById('submit-botton').addEventListener('click', () => {
     checkAnswer();
 });
 
